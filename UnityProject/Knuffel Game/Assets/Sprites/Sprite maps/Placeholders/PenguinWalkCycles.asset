@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: PenguinWalkCycles
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: North
+    m_Hash: 501948358
+    m_CategoryList:
+    - m_Name: Standing
+      m_Hash: -1729304434
+      m_Sprite: {fileID: -3053529513380738858, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 1
+      m_Hash: -181170189
+      m_Sprite: {fileID: -8572137081001092996, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 2
+      m_Hash: 1815797321
+      m_Sprite: {fileID: -732297714336915759, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+  - m_Name: East
+    m_Hash: -1746843372
+    m_CategoryList:
+    - m_Name: Standing
+      m_Hash: -1729304434
+      m_Sprite: {fileID: 9042981736371579055, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 1
+      m_Hash: -181170189
+      m_Sprite: {fileID: -3074955256197341518, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 2
+      m_Hash: 1815797321
+      m_Sprite: {fileID: -1126306578203171442, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+  - m_Name: South
+    m_Hash: -2133566864
+    m_CategoryList:
+    - m_Name: Standing
+      m_Hash: -1729304434
+      m_Sprite: {fileID: -3144703654117135951, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 1
+      m_Hash: -181170189
+      m_Sprite: {fileID: 1779085458226638321, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 2
+      m_Hash: 1815797321
+      m_Sprite: {fileID: 8216157584625768924, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+  - m_Name: West
+    m_Hash: 1794670300
+    m_CategoryList:
+    - m_Name: Standing
+      m_Hash: -1729304434
+      m_Sprite: {fileID: -4719332044623298277, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 1
+      m_Hash: -181170189
+      m_Sprite: {fileID: -8068660339955571984, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
+    - m_Name: Walk 2
+      m_Hash: 1815797321
+      m_Sprite: {fileID: 8686782354228950724, guid: 6713b07a86cd7e54685cd9ef6197235e, type: 3}
