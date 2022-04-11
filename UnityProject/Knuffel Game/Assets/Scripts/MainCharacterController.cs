@@ -30,46 +30,68 @@ public class MainCharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Move();
+    }
+
+    void Move()
+    {
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
 
-        var direction = lastDirection;
+
         var translationVector = new Vector2(x, y);
+        var direction = lastDirection;
         if (translationVector.magnitude > DEADZONE)
         {
             gameObject.transform.Translate(x * WalkingSpeed, y * WalkingSpeed, 0);
-            Vector2 fromVector2 = new Vector2(0, 1);
-            Vector2 toVector2 = translationVector.normalized;
-
-            float ang = Vector2.Angle(fromVector2, toVector2);
-            Vector3 cross = Vector3.Cross(fromVector2, toVector2);
-
-            if (cross.z > 0)
-            {
-                ang = 360 - ang;
-            }
-
-            if (ang < 45 || ang > 315)
-            {
-                direction = EDirection.North;
-            }
-
-            if (ang > 45 && ang < 135)
-            {
-                direction = EDirection.East;
-            }
-
-            if (ang > 135 && ang < 225)
-            {
-                direction = EDirection.South;
-            }
-
-            if (ang > 225 && ang < 315)
-            {
-                direction = EDirection.West;
-            }
+            direction = CalculateDirection(translationVector, direction);
         }
 
+        Animate(direction, translationVector);
+
+
+        lastDirection = direction;
+    }
+
+    EDirection CalculateDirection(Vector2 translationVector, EDirection initialDirection)
+    {
+        var direction = initialDirection;
+        Vector2 fromVector2 = new Vector2(0, 1);
+        Vector2 toVector2 = translationVector.normalized;
+
+        float ang = Vector2.Angle(fromVector2, toVector2);
+        Vector3 cross = Vector3.Cross(fromVector2, toVector2);
+
+        if (cross.z > 0)
+        {
+            ang = 360 - ang;
+        }
+
+        if (ang < 45 || ang > 315)
+        {
+            direction = EDirection.North;
+        }
+
+        if (ang > 45 && ang < 135)
+        {
+            direction = EDirection.East;
+        }
+
+        if (ang > 135 && ang < 225)
+        {
+            direction = EDirection.South;
+        }
+
+        if (ang > 225 && ang < 315)
+        {
+            direction = EDirection.West;
+        }
+
+        return direction;
+    }
+
+    void Animate(EDirection direction, Vector2 translationVector)
+    {
         var category = SpriteLibraryAsset.GetCategoryNames()
             .First(x => x.Equals(direction.ToString(), StringComparison.InvariantCultureIgnoreCase));
         if (translationVector.magnitude < DEADZONE)
@@ -95,14 +117,11 @@ public class MainCharacterController : MonoBehaviour
             {
                 SpriteRenderer.sprite = SpriteLibraryAsset.GetSprite(category, "Standing");
             }
-
-
+            
             if (frameCounter > FRAME_MULTIPLIER * 4)
             {
                 frameCounter = 0f;
             }
         }
-
-        lastDirection = direction;
     }
 }
